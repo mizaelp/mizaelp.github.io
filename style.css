@@ -1,0 +1,314 @@
+body {
+    margin: 0;
+    padding: 0;
+}
+:root {
+    --color1: #ECEFF1;
+    --color2: #CFD8DC;
+    --color3: #B0BEC5;
+    --color4: #90A4AE;
+    --color5: #78909C;
+    --color6: #607D8B;
+    --color7: #546E7A;
+    --color8: #455A64;
+    --color9: #37474F;
+    --color10: #263238;
+    --height-black: 50%;
+    --width-black: 10%;
+    --border-black: 5px solid black;
+    --height-white: 100%;
+}
+
+#app {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 700px;
+    height: 400px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    background-color: aliceblue;
+}
+
+#painel {
+    background-color: #34495e;
+    height: 30%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+}
+
+.input-volume-group {
+    background-color: #95afc0;
+    margin: 1%;
+    padding: 1%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#input-volume {
+    -webkit-appearance: none;
+    width: 100%;
+    height: 25px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+}
+
+#input-volume:hover {
+    opacity: 1;
+}
+
+#input-volume::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    background: #2f3542;
+    cursor: pointer;
+}
+
+#input-volume::-moz-range-thumb {
+    width: 25px;
+    height: 25px;
+    background: #2f3542;
+    cursor: pointer;
+}
+
+.select-oscillator-group {
+    background-color: #95afc0;
+    margin: 1%;
+    padding: 2.5%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+#select-oscillator {
+    width: 100%;
+    height: 5%;
+    font-size: 100%;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0;
+    background-color: #2f3542;
+    border: none;
+    border-bottom: 2px solid #2f3542;
+    color: white;
+    padding: 3px;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+#container {
+    background-color: var(--color10);
+    height: 70%;
+    width: 100%;
+}
+
+.white-note {
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.white-note * {
+    background-color: var(--color1);
+    height: var(--height-white);
+    flex-basis: 50%;
+    flex-grow: 1;
+    border: 5px solid black;
+    border-radius: 5%;
+
+}
+
+.doSus {
+    left: 9%;
+}
+
+.reSus {
+    left: 23%;
+}
+
+.faSus {
+    left: 52%;
+}
+
+.solSus {
+    left: 66%;
+}
+
+.laSus {
+    left: 82%;
+}
+
+#container> :not(:last-child) {
+    position: absolute;
+    background-color: var(--color10);
+    color: var(--color1);
+    height: var(--height-black);
+    width: var(--width-black);
+    border: var(--border-black);
+    border-radius: 5%;
+}
+h1 {
+    text-align: center;
+}
+
+.container1 {
+    height: 100em;
+    background-color: aqua;
+    position: relative;
+}
+
+.container2 {
+    height: 100em;
+    background-color: rebeccapurple;
+    position: relative;
+}
+
+header {
+    min-height: 60px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    border: 5px solid #333;
+    background: #333;
+    z-index: 2;
+}
+
+header nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+header nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px;
+    border: 1px solid #455A64;
+    margin-left: 10px;
+    background-color: #455A64;
+}
+
+header nav a:hover {
+    opacity: 0.5;
+}
+
+.chess {
+    position: absolute;
+    margin: auto;
+    left: 10%;
+    top: 10%;
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    box-shadow: 2em 0 black, 
+                4em 0 white, 
+                6em 0 black, 
+                8em 0 white, 
+                10em 0 black, 
+                12em 0 white, 
+                14em 0 black, 
+                0em 2em black, 
+                2em 2em white, 
+                4em 2em black, 
+                6em 2em white, 
+                8em 2em black, 
+                10em 2em white, 
+                12em 2em black, 
+                14em 2em white, 
+                0em 4em white, 
+                2em 4em black, 
+                4em 4em white, 
+                6em 4em black, 
+                8em 4em white, 
+                10em 4em black, 
+                12em 4em white, 
+                14em 4em black, 
+                0em 6em black, 
+                2em 6em white, 
+                4em 6em black, 
+                6em 6em white, 
+                8em 6em black, 
+                10em 6em white, 
+                12em 6em black, 
+                14em 6em white, 
+                0em 8em white, 
+                2em 8em black, 
+                4em 8em white, 
+                6em 8em black, 
+                8em 8em white, 
+                10em 8em black, 
+                12em 8em white, 
+                14em 8em black, 
+                 0em 10em black, 
+                2em 10em white, 
+                4em 10em black, 
+                6em 10em white, 
+                8em 10em black, 
+                10em 10em white, 
+                12em 10em black, 
+                14em 10em white, 
+                 0em 12em white, 
+                2em 12em black, 
+                4em 12em white, 
+                6em 12em black, 
+                8em 12em white, 
+                10em 12em black, 
+                12em 12em white, 
+                14em 12em black, 
+                 0em 14em black, 
+                2em 14em white, 
+                4em 14em black, 
+                6em 14em white, 
+                8em 14em black, 
+                10em 14em white, 
+                12em 14em black, 
+                14em 14em white;
+}
+/* Heart */
+
+.heart {
+    position: absolute;
+    top: 12%;
+    left: 50%;
+    margin: auto;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    transform: rotate(-45deg);
+}
+
+.heart::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 100px;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    border-radius: 50%;
+}
+
+.heart::before {
+    content: "";
+    position: absolute;
+    top: -100px;
+    left: 0;
+    height: 200px;
+    width: 200px;
+    background-color: red;
+    border-radius: 50%;
+}
