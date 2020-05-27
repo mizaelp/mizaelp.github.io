@@ -19,6 +19,46 @@ body {
     --height-white: 100%;
 }
 
+.cabecalho {
+    position: fixed;
+    top: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--color9);  
+    z-index: 1;
+    width: 100%;
+}
+
+div.nome {
+    padding: 5px 10px;
+}
+
+.menu {
+    flex-grow: 10;
+}
+
+.menu ul {
+    display: flex;
+    list-style-type: none;
+}
+
+.menu li {
+    padding: 5px 10px;
+}
+
+header a {
+    text-decoration: none;
+    color: var(--color1);
+    padding: 15px;
+    margin: 5px;
+    border-radius: 2px;
+}
+
+header a:hover {
+    background-color: var(--color4);
+}
+
 #app {
     position: absolute;
     top: 0;
@@ -174,36 +214,6 @@ h1 {
     height: 100em;
     background-color: rebeccapurple;
     position: relative;
-}
-
-header {
-    min-height: 60px;
-    position: fixed;
-    top: 0;
-    right: 0;
-    left: 0;
-    border: 5px solid #333;
-    background: #333;
-    z-index: 2;
-}
-
-header nav {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-header nav a {
-    color: #fff;
-    text-decoration: none;
-    padding: 10px;
-    border: 1px solid #455A64;
-    margin-left: 10px;
-    background-color: #455A64;
-}
-
-header nav a:hover {
-    opacity: 0.5;
 }
 
 .chess {
