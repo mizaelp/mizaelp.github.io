@@ -352,16 +352,40 @@ h1 {
     border-radius: 50%;
     box-shadow: -100px -100px red;
 }
-/* 
-.heart:hover::before {
-    display: block;
+
+.guitar {
+    position: absolute;
+    background-color: brown;
+    width: 150px;
+    height: 150px;
+    left: 10%;
+    top: 70%;
+    border-radius: 50%;
+    box-shadow: 100px 0px 0px -1em brown;
+    
+}
+
+.guitar::before {
     content: "";
     position: absolute;
-    top: 0px;
-    left: 0;
-    height: 200px;
-    width: 200px;
-    background-color: black;
-    z-index: 1;
-    transform: rotate(45deg);
-} */
+    top: 55px;
+    left: 120px;
+    background-color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+
+.guitar::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    background-color: brown;
+    width: 50px;
+    height: 40px;
+    left: 150%;
+    top: 35%;
+    box-shadow: 50px 0px 0px 0px brown,
+                80px 0px 0px 0px brown,
+                100px 0px 0px 5px brown;
+}
