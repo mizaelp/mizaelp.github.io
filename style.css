@@ -20,7 +20,7 @@ main#main {
     padding: 20px;
 }
 
-.ul_li, .li_a, .header_a, .a_button {
+.ul_li, .li_a, .header_a {
     font-family: "Montserrat", sans-serif;
     font-weight: 500;
     font-size: 16px;
@@ -57,13 +57,17 @@ header {
     color: #0088a9;
 }
 
-.a_button {
+.header_a {
     padding: 9px 25px;
     background-color: rgba(0, 136, 169, 1);
     border: none;
     border-radius: 50px;
     cursor: pointer;
     transition: all 0.3s ease 0s;
+}
+
+.header_a:hover {
+    background-color: rgba(0, 136, 169, 0.8);
 }
 
 button:hover {
@@ -87,7 +91,7 @@ img {
 .painel_piano {
     grid-row: 1;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     padding: 10px;
 }
@@ -123,15 +127,26 @@ img {
     font-family: arial;
     background-color: #0088a9;
     color: white;
+    padding-bottom: 10px;
   }
 
   .card a, .card p, .card h1, .card div, .card i {
       background-color: #0088a9;
   }
 
+  .card i {
+      color: white;
+      padding: 2px;
+  }
+
+  .card p {
+      padding: 5px;
+  }
+
   .title {
     color: white;
     font-size: 18px;
+    padding: 5px;
   }
   
   .btn-contact {

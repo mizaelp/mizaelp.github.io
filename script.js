@@ -64,38 +64,27 @@ const notes = [
 document.querySelector('a#piano').addEventListener('click', () => {
     document.querySelector('main#main').innerHTML = `
         <div class="container_piano">
-        <div class="painel_piano">
-            <div>
-                <label>Volume:</label>
-                <input id="input-volume" type="range" min="0" max="5" step="0.5"/>
-                <span id="volume-value">Valor</span>
+            <div class="painel_piano">
             </div>
-            <select>
-                <option>sine</option>
-                <option>sine</option>
-                <option>sine</option>
-                <option>sine</option>
-            </select>
-        </div>
-        <div class="keys_piano">
-            <button class="button_keys_white">Dó</button>
-            <button class="button_keys_black">Dó#</button>
-            <button class="button_keys_white">Ré</button>
-            <button class="button_keys_black">Ré#</button>
-            <button class="button_keys_white">Mi</button>
-            <button class="button_keys_white">Fá</button>
-            <button class="button_keys_black">Fá#</button>
-            <button class="button_keys_white">Sol</button>
-            <button class="button_keys_black">Sol#</button>
-            <button class="button_keys_white">Lá</button>
-            <button class="button_keys_black">Lá#</button>
-            <button class="button_keys_white">Si</button>
-        </div>
+            <div class="keys_piano">
+                <button class="button_keys_white">Dó</button>
+                <button class="button_keys_black">Dó#</button>
+                <button class="button_keys_white">Ré</button>
+                <button class="button_keys_black">Ré#</button>
+                <button class="button_keys_white">Mi</button>
+                <button class="button_keys_white">Fá</button>
+                <button class="button_keys_black">Fá#</button>
+                <button class="button_keys_white">Sol</button>
+                <button class="button_keys_black">Sol#</button>
+                <button class="button_keys_white">Lá</button>
+                <button class="button_keys_black">Lá#</button>
+                <button class="button_keys_white">Si</button>
+            </div>
     </div>
     `
 })
 
-document.querySelector('a#about').addEventListener('click', () => {
+document.querySelector('a#contact').addEventListener('click', () => {
     document.querySelector('main#main').innerHTML = `
     <div class="card">
     <img class="logo" src="https://avatars1.githubusercontent.com/u/46569836?s=460&u=b13c83036193f1465036090faa396fc75c2a1120&v=4" alt="Profile">
@@ -103,12 +92,14 @@ document.querySelector('a#about').addEventListener('click', () => {
   <p class="title">Web Developer</p>
   <p>Graduated at Instituto Federal do Triângulo Mineiro</p>
   <div style="margin: 24px 0;">
-    <a class="a_card" href="#"><i class="fa fa-dribbble"></i></a> 
-    <a class="a_card" href="#"><i class="fa fa-twitter"></i></a>  
-    <a class="a_card" href="#"><i class="fa fa-linkedin"></i></a>  
-    <a class="a_card" href="#"><i class="fa fa-facebook"></i></a> 
+    <a class="a_card" href="https://github.com/mizaelp" target="_blank"><i class="fa fa-github"></i></a> 
+    <a class="a_card" href="https://www.linkedin.com/in/mizael-pereira" target="_blank"><i class="fa fa-linkedin"></i></a>  
+    <a class="a_card" href="https://www.instagram.com/mizael.pereira_/" target="_blank"><i class="fa fa-instagram"></i></a> 
   </div>
-  <p><button class="btn-contact">Contact</button></p>
 </div>
     `
+})
+
+document.querySelector('a#home').addEventListener('click', () => {
+    document.querySelector('main#main').innerHTML = ''
 })
