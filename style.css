@@ -116,11 +116,12 @@ img {
     grid-row: 1;
 }
 
-.painel_piano div span, .painel_piano div label  {
+.painel_piano div span, .painel_piano div label {
     color: white;
 }
 
 /* Profile card */
+
 .card {
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     max-width: 300px;
@@ -130,28 +131,28 @@ img {
     background-color: #0088a9;
     color: white;
     padding-bottom: 10px;
-  }
+}
 
-  .card a, .card p, .card h1, .card div, .card i {
-      background-color: #0088a9;
-  }
+.card a, .card p, .card h1, .card div, .card i {
+    background-color: #0088a9;
+}
 
-  .card i {
-      color: white;
-      padding: 2px;
-  }
+.card i {
+    color: white;
+    padding: 2px;
+}
 
-  .card p {
-      padding: 5px;
-  }
+.card p {
+    padding: 5px;
+}
 
-  .title {
+.title {
     color: white;
     font-size: 18px;
     padding: 5px;
-  }
-  
-  .btn-contact {
+}
+
+.btn-contact {
     border: none;
     outline: 0;
     display: inline-block;
@@ -162,22 +163,36 @@ img {
     cursor: pointer;
     width: 100%;
     font-size: 18px;
-  }
-  
-  .a_card {
+}
+
+.a_card {
     text-decoration: none;
     font-size: 22px;
     color: black;
     background-color: #0088a9;
-  }
-  
-  .btn-contact:hover,   .a_card:hover {
-    opacity: 0.7;
-  }
+}
 
-  .h2_about {
+.btn-contact:hover, .a_card:hover {
+    opacity: 0.7;
+}
+
+.h2_about {
     font-family: "Montserrat", sans-serif;
-      background-color: #0088a9;
-      color: white;
-      text-align: center;
-  }
+    background-color: #0088a9;
+    color: white;
+    text-align: center;
+}
+
+@media only screen and (max-width: 768px) {
+    main#main {
+        padding: 0;
+    }
+    .container_piano {
+        height: 100vh;
+        width: 100vw;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 3fr;
+        border-radius: 0px 0px 5px 5px;
+    }
+}
