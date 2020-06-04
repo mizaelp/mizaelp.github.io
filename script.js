@@ -61,37 +61,16 @@ const notes = [
     }
 ]
 
-const inputVolume = document.querySelector('input#input-volume')
-const selectOscillator = document.querySelector('select#select-oscillator')
-const spanVolumeValue = document.querySelector('span#span-volume-value')
-
-inputVolume.addEventListener('input', () => {
-    spanVolumeValue.textContent = inputVolume.value
-})
-
-const getValue = name => notes.find(obj => obj.name === name)
-
-const context = new AudioContext()
-
-const playNote = (frequenciaNota) => {
-    const oscillator = context.createOscillator()
-    const volume = context.createGain()
-    oscillator.frequency.value = frequenciaNota
-    oscillator.type = selectOscillator.value
-    volume.gain.value = inputVolume.value
-
-    oscillator.connect(volume)
-    volume.connect(context.destination)
-
-    oscillator.start(context.currentTime)
-    setTimeout(() => oscillator.stop(), 500)
-}
-
-const buttonSortear = document.querySelector('button#random-note')
-const button = document.querySelectorAll('#container button')
-
-button.forEach(element => {
-    element.addEventListener('click', event => {
-        playNote(getValue(event.target.className).frequencia)
-    })
-})
+document.querySelector('div#app').innerHTML = 
+    `
+    <header>
+        <!-- <img class="logo" src="https://avatars1.githubusercontent.com/u/46569836?s=460&u=b13c83036193f1465036090faa396fc75c2a1120&v=4" alt="Profile" width="60px"> -->
+        <nav>
+            <ul class="nav_links">
+                <li><a>Home</a></li>
+                <li><a>About</a></li>
+            </ul>
+        </nav>
+        <a class="cta" href="#"><button>Contact</button></a>
+    </header>
+    <main id="main">Teste</main>`
