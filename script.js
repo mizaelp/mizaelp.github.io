@@ -61,45 +61,90 @@ const notes = [
     }
 ]
 
-document.querySelector('a#piano').addEventListener('click', () => {
-    document.querySelector('main#main').innerHTML = `
-        <div class="container_piano">
-            <div class="painel_piano">
-            </div>
-            <div class="keys_piano">
-                <button class="button_keys_white">Dó</button>
-                <button class="button_keys_black">Dó#</button>
-                <button class="button_keys_white">Ré</button>
-                <button class="button_keys_black">Ré#</button>
-                <button class="button_keys_white">Mi</button>
-                <button class="button_keys_white">Fá</button>
-                <button class="button_keys_black">Fá#</button>
-                <button class="button_keys_white">Sol</button>
-                <button class="button_keys_black">Sol#</button>
-                <button class="button_keys_white">Lá</button>
-                <button class="button_keys_black">Lá#</button>
-                <button class="button_keys_white">Si</button>
-            </div>
+const playNote = (freq) => {
+    const context = new AudioContext()
+    const oscillator = context.createOscillator()
+    const volume = context.createGain()
+    oscillator.frequency.value = freq
+    oscillator.type = "sine"
+    volume.gain.value = 0.5
+
+    oscillator.connect(volume)
+    volume.connect(context.destination)
+
+    oscillator.start(context.currentTime)
+    setTimeout(() => oscillator.stop(), 500)
+
+}
+
+const pianoState = () => {
+    pianoPresenter()
+}
+
+const pianoView = () => {
+    return `
+    <div class="container_piano">
+        <div class="painel_piano">
+        </div>
+        <div id="container-keys" class="keys_piano">
+            <button data="do" class="button_keys_white">Dó</button>
+            <button data="doSus" class="button_keys_black">Dó#</button>
+            <button data="re" class="button_keys_white">Ré</button>
+            <button data="reSus" class="button_keys_black">Ré#</button>
+            <button data="mi" class="button_keys_white">Mi</button>
+            <button data="fa" class="button_keys_white">Fá</button>
+            <button data="faSus" class="button_keys_black">Fá#</button>
+            <button data="sol" class="button_keys_white">Sol</button>
+            <button data="solSus" class="button_keys_black">Sol#</button>
+            <button data="la" class="button_keys_white">Lá</button>
+            <button data="laSus" class="button_keys_black">Lá#</button>
+            <button data="si" class="button_keys_white">Si</button>
+        </div>
     </div>
     `
+}
+
+document.querySelector('a#piano').addEventListener('click', () => {
+    pianoState()
 })
+
+const getValue = name => notes.find(obj => obj.name === name)
+
+const pianoPresenter = () => {
+    const view = pianoView()
+    document.querySelector('main#main').innerHTML = view
+
+    const btnNote = document.querySelectorAll('#container-keys button')
+
+    btnNote.forEach(element => {
+        element.addEventListener('click', event => {
+            playNote(getValue(event.target.getAttribute('data')).frequencia)
+        })
+    })
+}
 
 document.querySelector('a#contact').addEventListener('click', () => {
     document.querySelector('main#main').innerHTML = `
     <div class="card">
-    <img class="logo" src="https://avatars1.githubusercontent.com/u/46569836?s=460&u=b13c83036193f1465036090faa396fc75c2a1120&v=4" alt="Profile">
-  <h1>Mizael Pereira</h1>
-  <p class="title">Web Developer</p>
-  <p>Graduated at Instituto Federal do Triângulo Mineiro</p>
-  <div style="margin: 24px 0;">
-    <a class="a_card" href="https://github.com/mizaelp" target="_blank"><i class="fa fa-github"></i></a> 
-    <a class="a_card" href="https://www.linkedin.com/in/mizael-pereira" target="_blank"><i class="fa fa-linkedin"></i></a>  
-    <a class="a_card" href="https://www.instagram.com/mizael.pereira_/" target="_blank"><i class="fa fa-instagram"></i></a> 
-  </div>
-</div>
+        <img class="logo" src="https://avatars1.githubusercontent.com/u/46569836?s=460&u=b13c83036193f1465036090faa396fc75c2a1120&v=4" alt="Profile">
+        <h1>Mizael Pereira</h1>
+        <p class="title">Web Developer</p>
+        <p>Graduated at Instituto Federal do Triângulo Mineiro in Licenciatura em Computação</p>
+        <div style="margin: 24px 0;">
+            <a class="a_card" href="https://github.com/mizaelp" target="_blank"><i class="fa fa-github"></i></a> 
+            <a class="a_card" href="https://www.linkedin.com/in/mizael-pereira" target="_blank"><i class="fa fa-linkedin"></i></a>  
+            <a class="a_card" href="https://www.instagram.com/mizael.pereira_/" target="_blank"><i class="fa fa-instagram"></i></a> 
+        </div>
+    </div>
     `
 })
 
 document.querySelector('a#home').addEventListener('click', () => {
     document.querySelector('main#main').innerHTML = ''
+})
+
+document.querySelector('a#about').addEventListener('click', () => {
+    document.querySelector('main#main').innerHTML = `
+    <h2 class="h2_about">Sharing science computer with music and art.</h2>
+    `
 })
