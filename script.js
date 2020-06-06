@@ -77,6 +77,17 @@ const playNote = (freq) => {
 
 }
 
+const showSnackBar = () => {
+    let div = document.querySelector('div#snackbar')
+    div.className = "show"
+    setTimeout(() => {
+        div.className = div.className.replace("show", "")
+    }, 3000)
+}
+
+let note = null
+const randomNote = () => notes[Math.floor(Math.random() * notes.length)].frequencia
+
 const pianoState = () => {
     pianoPresenter()
 }
@@ -85,6 +96,7 @@ const pianoView = () => {
     return `
     <div class="container_piano">
         <div class="painel_piano">
+            <button id="btn-random" class="btn_play">Sortear nota</button>
         </div>
         <div id="container-keys" class="keys_piano">
             <button data="do" class="button_keys_white">Dó</button>
@@ -101,6 +113,7 @@ const pianoView = () => {
             <button data="si" class="button_keys_white">Si</button>
         </div>
     </div>
+    <div id="snackbar">Parabéns, você acertou!</div>
     `
 }
 
@@ -116,9 +129,21 @@ const pianoPresenter = () => {
 
     const btnNote = document.querySelectorAll('#container-keys button')
 
+    const btnRandom = document.querySelector('#btn-random')
+
+    btnRandom.addEventListener('click', () => {
+        note = randomNote()
+        playNote(randomNote())
+        console.log(note)
+    })
+
     btnNote.forEach(element => {
         element.addEventListener('click', event => {
             playNote(getValue(event.target.getAttribute('data')).frequencia)
+            if (note === getValue(event.target.getAttribute('data')).frequencia) {
+                showSnackBar()
+                note = null
+            }
         })
     })
 }
