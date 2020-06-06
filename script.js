@@ -86,6 +86,7 @@ const showSnackBar = () => {
 }
 
 let note = null
+let score = 0
 const randomNote = () => notes[Math.floor(Math.random() * notes.length)].frequencia
 
 const pianoState = () => {
@@ -97,6 +98,10 @@ const pianoView = () => {
     <div class="container_piano">
         <div class="painel_piano">
             <button id="btn-random" class="btn_play">Sortear nota</button>
+            <div class="score-group">
+                <label class="lbl_score">Pontuação:</label>
+                <div id="div-score" class="score">0</div>
+            </div>
             <div id="snackbar">Parabéns, você acertou!</div>
         </div>
         <div id="container-keys" class="keys_piano">
@@ -131,6 +136,8 @@ const pianoPresenter = () => {
 
     const btnRandom = document.querySelector('#btn-random')
 
+    const divScore = document.querySelector('div#div-score')
+
     btnRandom.addEventListener('click', () => {
         note = randomNote()
         playNote(note)
@@ -144,6 +151,8 @@ const pianoPresenter = () => {
             if (note === getValue(event.target.getAttribute('data')).frequencia) {
                 showSnackBar()
                 note = null
+                score ++
+                divScore.textContent = score
             }
         })
     })

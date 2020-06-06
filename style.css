@@ -197,6 +197,20 @@ img {
     text-align: center;
 }
 
+.score, .lbl_score {
+    color: #fff;
+    font-size: 18px;
+    font-family: var(--main-font);
+}
+
+.score {
+    padding-left: 10px;
+}
+
+.score-group {
+    display: flex;
+}
+
 #snackbar {
     visibility: hidden;
     max-width: 300px;
@@ -213,7 +227,7 @@ img {
 
 #snackbar.show {
     visibility: visible;
-    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 3.0s;
 }
 
 
