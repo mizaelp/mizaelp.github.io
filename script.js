@@ -148,17 +148,17 @@ const pianoPresenter = () => {
     btnRandom.addEventListener('click', () => {
         note = randomNote()
         playNote(note)
-        console.log(note)
         btnRandom.setAttribute('disabled', '')
     })
 
     document.addEventListener('keypress', event => {
-        playNote(notes[getIndex(event.keyCode)].frequencia)
-        console.log(notes[getIndex(event.keyCode)].name)
-        document.querySelector(`[data="${notes[getIndex(event.keyCode)].name}"]`).classList.add('hover')
-        setTimeout(() => {
-            document.querySelector(`[data="${notes[getIndex(event.keyCode)].name}"]`).classList.remove('hover')
-        }, 500)
+        if (arr.includes(event.keyCode)) {
+            playNote(notes[getIndex(event.keyCode)].frequencia)
+            document.querySelector(`[data="${notes[getIndex(event.keyCode)].name}"]`).classList.add('hover')
+            setTimeout(() => {
+                document.querySelector(`[data="${notes[getIndex(event.keyCode)].name}"]`).classList.remove('hover')
+            }, 500)
+        }
     })
 
     btnNote.forEach(element => {
