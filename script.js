@@ -97,6 +97,7 @@ const pianoView = () => {
     <div class="container_piano">
         <div class="painel_piano">
             <button id="btn-random" class="btn_play">Sortear nota</button>
+            <div id="snackbar">Parabéns, você acertou!</div>
         </div>
         <div id="container-keys" class="keys_piano">
             <button data="do" class="button_keys_white">Dó</button>
@@ -113,7 +114,6 @@ const pianoView = () => {
             <button data="si" class="button_keys_white">Si</button>
         </div>
     </div>
-    <div id="snackbar">Parabéns, você acertou!</div>
     `
 }
 
@@ -134,6 +134,7 @@ const pianoPresenter = () => {
     btnRandom.addEventListener('click', () => {
         note = randomNote()
         playNote(note)
+        console.log(note)
     })
 
     btnNote.forEach(element => {
