@@ -147,6 +147,7 @@ const pianoPresenter = () => {
         note = randomNote()
         playNote(note)
         console.log(note)
+        btnRandom.setAttribute('disabled', '')
     })
 
     btnNote.forEach(element => {
@@ -158,6 +159,7 @@ const pianoPresenter = () => {
                 note = null
                 score ++
                 divScore.textContent = score
+                btnRandom.removeAttribute('disabled')
             } else {
                 vidas--
                 divLifes.textContent = vidas
@@ -168,6 +170,7 @@ const pianoPresenter = () => {
                     vidas = 3
                     divLifes.textContent = vidas
                     divScore.textContent = score
+                    btnRandom.removeAttribute('disabled')
                 }
             }
         })
