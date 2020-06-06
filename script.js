@@ -133,13 +133,13 @@ const pianoPresenter = () => {
 
     btnRandom.addEventListener('click', () => {
         note = randomNote()
-        playNote(randomNote())
-        console.log(note)
+        playNote(note)
     })
 
     btnNote.forEach(element => {
         element.addEventListener('click', event => {
-            playNote(getValue(event.target.getAttribute('data')).frequencia)
+            let playNow = getValue(event.target.getAttribute('data')).frequencia
+            playNote(playNow)
             if (note === getValue(event.target.getAttribute('data')).frequencia) {
                 showSnackBar()
                 note = null
