@@ -154,6 +154,11 @@ const pianoPresenter = () => {
 
     document.addEventListener('keypress', event => {
         playNote(notes[getIndex(event.keyCode)].frequencia)
+        console.log(notes[getIndex(event.keyCode)].name)
+        document.querySelector(`[data="${notes[getIndex(event.keyCode)].name}"]`).classList.add('hover')
+        setTimeout(() => {
+            document.querySelector(`[data="${notes[getIndex(event.keyCode)].name}"]`).classList.remove('hover')
+        }, 500)
     })
 
     btnNote.forEach(element => {

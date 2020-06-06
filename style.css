@@ -124,6 +124,9 @@ img {
     color: white;
 }
 
+.hover {
+    background-color: #0088a9;
+}
 /* Profile card */
 
 .card {
