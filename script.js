@@ -89,6 +89,7 @@ const showSnackBar = (msg) => {
 let note = null
 let score = 0
 let vidas = 3
+let arr = [122, 115, 120, 100, 99, 118, 103, 98, 104, 110, 106, 109]
 const randomNote = () => notes[Math.floor(Math.random() * notes.length)].frequencia
 
 const pianoState = () => {
@@ -133,6 +134,7 @@ document.querySelector('a#piano').addEventListener('click', () => {
 })
 
 const getValue = name => notes.find(obj => obj.name === name)
+const getIndex = value => arr.findIndex(array => array === value)
 
 const pianoPresenter = () => {
     const view = pianoView()
@@ -150,6 +152,10 @@ const pianoPresenter = () => {
         btnRandom.setAttribute('disabled', '')
     })
 
+    document.addEventListener('keypress', event => {
+        playNote(notes[getIndex(event.keyCode)].frequencia)
+    })
+
     btnNote.forEach(element => {
         element.addEventListener('click', event => {
             let playNow = getValue(event.target.getAttribute('data')).frequencia
@@ -157,7 +163,7 @@ const pianoPresenter = () => {
             if (note === getValue(event.target.getAttribute('data')).frequencia) {
                 showSnackBar('Parabéns, você acertou!')
                 note = null
-                score ++
+                score++
                 divScore.textContent = score
                 btnRandom.removeAttribute('disabled')
             } else {
