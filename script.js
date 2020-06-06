@@ -77,8 +77,9 @@ const playNote = (freq) => {
 
 }
 
-const showSnackBar = () => {
+const showSnackBar = (msg) => {
     let div = document.querySelector('div#snackbar')
+    div.textContent = msg
     div.className = "show"
     setTimeout(() => {
         div.className = div.className.replace("show", "")
@@ -87,6 +88,7 @@ const showSnackBar = () => {
 
 let note = null
 let score = 0
+let vidas = 3
 const randomNote = () => notes[Math.floor(Math.random() * notes.length)].frequencia
 
 const pianoState = () => {
@@ -100,9 +102,13 @@ const pianoView = () => {
             <button id="btn-random" class="btn_play">Sortear nota</button>
             <div class="score-group">
                 <label class="lbl_score">Pontuação:</label>
-                <div id="div-score" class="score">0</div>
+                <div id="div-score" class="score">${score}</div>
             </div>
-            <div id="snackbar">Parabéns, você acertou!</div>
+            <div class="lifes-group">
+                <label class="lbl_lifes">Chances:</label>
+                <div id="div-lifes" class="lifes">${vidas}</div>
+            </div>
+            <div id="snackbar"></div>
         </div>
         <div id="container-keys" class="keys_piano">
             <button data="do" class="button_keys_white">Dó</button>
@@ -133,10 +139,9 @@ const pianoPresenter = () => {
     document.querySelector('main#main').innerHTML = view
 
     const btnNote = document.querySelectorAll('#container-keys button')
-
     const btnRandom = document.querySelector('#btn-random')
-
     const divScore = document.querySelector('div#div-score')
+    const divLifes = document.querySelector('div#div-lifes')
 
     btnRandom.addEventListener('click', () => {
         note = randomNote()
@@ -149,10 +154,21 @@ const pianoPresenter = () => {
             let playNow = getValue(event.target.getAttribute('data')).frequencia
             playNote(playNow)
             if (note === getValue(event.target.getAttribute('data')).frequencia) {
-                showSnackBar()
+                showSnackBar('Parabéns, você acertou!')
                 note = null
                 score ++
                 divScore.textContent = score
+            } else {
+                vidas--
+                divLifes.textContent = vidas
+                if (vidas == 0) {
+                    showSnackBar('Game Over!')
+                    note = null
+                    score = 0
+                    vidas = 3
+                    divLifes.textContent = vidas
+                    divScore.textContent = score
+                }
             }
         })
     })

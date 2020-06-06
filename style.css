@@ -211,10 +211,23 @@ img {
     display: flex;
 }
 
+.lbl_lifes, .lifes {
+    color: #fff;
+    font-size: 18px;
+    font-family: var(--main-font);
+}
+
+.lifes {
+    padding-left: 10px;
+}
+
+.lifes-group {
+    display: flex;
+    padding-left: 10px;
+}
+
 #snackbar {
     visibility: hidden;
-    max-width: 300px;
-    max-height: 50px;
     background-color: rgba(170, 166, 157, 0.6);
     color: #fff;
     font-family: var(--main-font);
