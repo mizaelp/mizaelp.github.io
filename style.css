@@ -191,6 +191,7 @@ img {
     font-family: var(--main-font);
     cursor: pointer;
     font-size: 16px;
+    margin-right: 10px;
 }
 
 .h2_about {
@@ -227,6 +228,7 @@ img {
 .lifes-group {
     display: flex;
     padding-left: 10px;
+    margin-left: 10px;
 }
 
 #snackbar {

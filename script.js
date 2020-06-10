@@ -79,10 +79,13 @@ const playNote = (freq) => {
 
 const showSnackBar = (msg) => {
     let div = document.querySelector('div#snackbar')
+    let divContainer = document.querySelector('div#container-keys')
     div.textContent = msg
     div.className = "show"
+    divContainer.style.opacity = "0.5"
     setTimeout(() => {
         div.className = div.className.replace("show", "")
+        divContainer.style.opacity = ""
     }, 3000)
 }
 
@@ -112,18 +115,18 @@ const pianoView = () => {
             <div id="snackbar"></div>
         </div>
         <div id="container-keys" class="keys_piano">
-            <button data="do" class="button_keys_white">Dó</button>
-            <button data="doSus" class="button_keys_black">Dó#</button>
-            <button data="re" class="button_keys_white">Ré</button>
-            <button data="reSus" class="button_keys_black">Ré#</button>
-            <button data="mi" class="button_keys_white">Mi</button>
-            <button data="fa" class="button_keys_white">Fá</button>
-            <button data="faSus" class="button_keys_black">Fá#</button>
-            <button data="sol" class="button_keys_white">Sol</button>
-            <button data="solSus" class="button_keys_black">Sol#</button>
-            <button data="la" class="button_keys_white">Lá</button>
-            <button data="laSus" class="button_keys_black">Lá#</button>
-            <button data="si" class="button_keys_white">Si</button>
+            <button data="do" class="button_keys_white">Dó(Z)</button>
+            <button data="doSus" class="button_keys_black">Dó#(S)</button>
+            <button data="re" class="button_keys_white">Ré(X)</button>
+            <button data="reSus" class="button_keys_black">Ré#(D)</button>
+            <button data="mi" class="button_keys_white">Mi(C)</button>
+            <button data="fa" class="button_keys_white">Fá(V)</button>
+            <button data="faSus" class="button_keys_black">Fá#(G)</button>
+            <button data="sol" class="button_keys_white">Sol(B)</button>
+            <button data="solSus" class="button_keys_black">Sol#(h)</button>
+            <button data="la" class="button_keys_white">Lá(N)</button>
+            <button data="laSus" class="button_keys_black">Lá#(J)</button>
+            <button data="si" class="button_keys_white">Si(M)</button>
         </div>
     </div>
     `
@@ -204,12 +207,23 @@ document.querySelector('a#contact').addEventListener('click', () => {
     `
 })
 
-document.querySelector('a#home').addEventListener('click', () => {
-    document.querySelector('main#main').innerHTML = ''
-})
-
 document.querySelector('a#about').addEventListener('click', () => {
     document.querySelector('main#main').innerHTML = `
     <h2 class="h2_about">Sharing science computer with music and art.</h2>
     `
 })
+
+// const viewHome = () => {
+//     return `<h1>Home</h1>`
+// }
+// const main = () => {
+//     const view = viewHome()
+//     document.querySelector('main#main').innerHTML = view
+
+//     document.querySelector('a#home').addEventListener('click', () => {
+//         document.querySelector('main#main').innerHTML = view
+//     })
+// }
+
+// main()
+pianoState()
