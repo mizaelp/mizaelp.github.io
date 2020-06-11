@@ -78,14 +78,21 @@ const playNote = (freq) => {
 }
 
 const showSnackBar = (msg) => {
+    let btnAll = document.querySelectorAll('div#container-keys button')
     let div = document.querySelector('div#snackbar')
     let divContainer = document.querySelector('div#container-keys')
     div.textContent = msg
     div.className = "show"
     divContainer.style.opacity = "0.5"
+    btnAll.forEach(e => {
+        e.setAttribute('disabled', '')
+    })
     setTimeout(() => {
         div.className = div.className.replace("show", "")
         divContainer.style.opacity = ""
+        btnAll.forEach(e => {
+            e.removeAttribute('disabled')
+        })
     }, 3000)
 }
 
